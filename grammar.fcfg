@@ -1,0 +1,55 @@
+S -> NP[NUM=?n] VP[NUM=?n, SUBCAT=nil] | SUBS
+S ->  Wh[SUBCAT=?s] Aux[NUM=?n] NP[NUM=?n] VP[NUM=pl, SUBCAT=?s]
+S ->  Wh NP[NUM=?n]  Aux[NUM=?n] NP VP[NUM=pl, SUBCAT=nil]
+S -> Wh S
+S -> Wh Aux[NUM=?n] NP
+S -> Wh SUBS
+
+SUBS ->  NP[NUM=?n] VP[NUM=?n,SUBCAT=subsentence] S 
+
+NP[NUM=?n] -> ProperNoun[NUM=?n] | Nom[NUM=?n] | Det[NUM=?n] Nom[NUM=?n]
+NP[NUM=pl] -> NP CONJ
+Nom[NUM=?n] -> Noun[NUM=?n] | ADJ Nom[NUM=?n] | Nom[NUM=?n] PP | PP 
+
+VP[NUM=?n, SUBCAT=?rest] -> VP[NUM=?n, SUBCAT=[HEAD=?arg, TAIL=?rest]] ARG[CAT=?arg] 
+VP[NUM=?n, SUBCAT=?args] -> V[NUM=?n, SUBCAT=?args]
+VP[NUM=?n, SUBCAT=?args] -> VP[NUM=?n, SUBCAT=?args] CONJ
+
+ARG[CAT = np] -> NP
+ARG[CAT = pp] -> PP
+
+PP -> Prep Noun | Prep Det Noun 
+
+CONJ -> Conj NP | Conj VP
+
+ADJ -> Adj ADJ | Adj
+
+
+#word definitions
+ProperNoun[NUM = sg] -> 'Arthur' | 'Guinevere'
+ProperNoun[NUM = pl] -> 'Mondays'
+
+Noun[NUM = sg] -> 'water' | 'beer' | 'horse' | 'castle' | 'chalice'
+Noun[NUM = pl] -> 'horses' 
+
+Conj -> 'and'
+
+Adj -> 'old' | 'white'
+
+Det[NUM = sg] -> 'a'
+Det[NUM = ?n] -> 'the'
+
+Prep -> 'near' | 'from' | 'on'
+
+Adv -> 'when'
+
+Aux[NUM = sg] -> 'does'
+Aux[NUM = pl] -> 'do' 
+
+Wh -> 'when'
+
+#verb definitions
+V[NUM  = sg] ->  'sighs' | 'drinks' | 'rides' | 'thinks'
+V[NUM = pl] -> 'love' | 'sigh' | 'drink' | 'ride' 
+V[NUM  = sg, SUBCAT = [HEAD = np, TAIL = nil]] -> 'loves'
+

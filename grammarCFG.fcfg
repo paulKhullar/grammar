@@ -1,0 +1,47 @@
+S -> NP VP | Wh S | Wh Aux S | NP VP S | Wh Aux NP 
+
+NP -> ProperNoun | NP CONJ | Nom 
+
+Nom -> Noun | Det Nom | ADJ Nom | Nom PP | PP 
+
+VP -> VP ARG 
+VP -> V | Adv V
+VP -> VP CONJ
+
+ARG -> NP
+
+PP -> Prep NP 
+
+CONJ -> Conj NP | Conj VP
+
+ADJ -> Adj ADJ | Adj
+
+
+#word definitions
+ProperNoun -> 'Arthur' | 'Guinevere'
+ProperNoun -> 'Mondays'
+
+Noun -> 'water' | 'beer' | 'horse' | 'castle' | 'chalice'
+Noun -> 'horses' 
+
+Conj -> 'and'
+
+Adj -> 'old' | 'white'
+
+Det -> 'a'
+Det -> 'the'
+
+Prep -> 'near' | 'from' | 'on'
+
+Adv -> 'when'
+
+Aux -> 'does' | 'do'
+
+Wh -> 'when'
+
+#verb definitions
+V -> 'love' | 'loves'
+V -> 'sigh' | 'sighs'
+V -> 'drink' | 'drinks'
+V -> 'ride' | 'rides'
+V -> 'thinks' 
